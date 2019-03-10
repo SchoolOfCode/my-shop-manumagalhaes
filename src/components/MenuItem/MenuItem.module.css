@@ -1,0 +1,49 @@
+.title {
+  margin: 0;
+  color: var(--white);
+}
+
+.text {
+  margin: 0;
+  font-size: 12px;
+  color: var(--black);
+}
+
+.button {
+  padding: 4px;
+  margin: 4px;
+}
+
+.itemContainer {
+  display: flex;
+  margin-bottom: 4px;
+  border-top: 1px solid white;
+  border-bottom: 2px solid white;
+  padding: 12px 4px;
+}
+
+.image {
+  flex-basis: 150px;
+  max-width: 200px;
+  height: 110px;
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  margin-right: 1rem;
+  background-repeat: no-repeat;
+}
+
+.content {
+  flex: 1;
+}
+
+.itemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-size: 10px;
+  color: var(--white);
+}

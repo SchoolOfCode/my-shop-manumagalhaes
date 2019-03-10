@@ -1,38 +1,42 @@
 import React from "react";
+import PropTypes from "prop-types";
+
+import Heading from "../Heading";
+import OrderItem from "../OrderItem";
 
 import { formatPrice } from "../../utils";
 import css from "./Order.module.css";
 
-class Order extends React.Component {
-  render() {
-    const orderIds = Object.keys(this.props.order);
-    const total = orderIds.reduce((prevTotal, key) => {
-      const item = this.props.stock[key];
-      const count = this.props.order[key];
-      return prevTotal + count * item.price;
-    }, 0);
-    return (
-      <div>
-        <h2>Order</h2>
-        <ul>
-          {orderIds.map(item => (
-            <li key={item} className={css.item}>
-              <span className={css.name}>{this.props.stock[item].name}</span>
-              <span className={css.at}> @ </span>
-              <span className={css.price}>
-                {formatPrice(this.props.stock[item].price)}
-              </span>
-              <span className={css.x}> x </span>
-              <span className={css.quantity}>{this.props.order[item]}</span>
-            </li>
-          ))}
-        </ul>
-        <p className={css.total}>
-          Total: <span className={css.totalPrice}>{formatPrice(total)}</span>
-        </p>
-      </div>
-    );
-  }
-}
+const Order = ({ stock, order }) => {
+  const orderIds = Object.keys(order);
+  const total = orderIds.reduce((prevTotal, key) => {
+    const item = stock[key];
+    const count = order[key];
+    return prevTotal + count * item.price;
+  }, 0);
+  return (
+    <div>
+      <Heading>Order</Heading>
+      <ul>
+        {orderIds.map(item => (
+          <OrderItem
+            key={item}
+            name={stock[item].name}
+            price={stock[item].price}
+            quantity={order[item]}
+          />
+        ))}
+      </ul>
+      <p className={css.total}>
+        Total: <span className={css.totalPrice}>{formatPrice(total)}</span>
+      </p>
+    </div>
+  );
+};
+
+Order.propTypes = {
+  stock: PropTypes.object,
+  order: PropTypes.object
+};
 
 export default Order;
