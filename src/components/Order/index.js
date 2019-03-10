@@ -7,8 +7,15 @@ import OrderItem from "../OrderItem";
 import { formatPrice } from "../../utils";
 import css from "./Order.module.css";
 
-const Order = ({ stock, order }) => {
+const Order = ({
+  stock,
+  order,
+  addToOrder,
+  removeFromOrder,
+  deleteFromOrder
+}) => {
   const orderIds = Object.keys(order);
+
   const total = orderIds.reduce((prevTotal, key) => {
     const item = stock[key];
     const count = order[key];
@@ -18,17 +25,23 @@ const Order = ({ stock, order }) => {
     <div>
       <Heading>Order</Heading>
       <ul>
-        {orderIds.map(item => (
-          <OrderItem
-            key={item}
-            name={stock[item].name}
-            price={stock[item].price}
-            quantity={order[item]}
-          />
-        ))}
+        {orderIds.map(
+          item =>
+            order[item] && (
+              <OrderItem
+                addToOrder={() => addToOrder(item)}
+                removeFromOrder={() => removeFromOrder(item)}
+                deleteFromOrder={() => deleteFromOrder(item)}
+                key={item}
+                name={stock[item].name}
+                price={stock[item].price}
+                quantity={order[item]}
+              />
+            )
+        )}
       </ul>
       <p className={css.total}>
-        Total: <span className={css.totalPrice}>{formatPrice(total)}</span>
+        Total: <span className={css.totalPrice}>{formatPrice(total || 0)}</span>
       </p>
     </div>
   );
@@ -36,7 +49,10 @@ const Order = ({ stock, order }) => {
 
 Order.propTypes = {
   stock: PropTypes.object,
-  order: PropTypes.object
+  order: PropTypes.object,
+  addToOrder: PropTypes.func,
+  removeFromOrder: PropTypes.func,
+  deleteFromOrder: PropTypes.func
 };
 
 export default Order;

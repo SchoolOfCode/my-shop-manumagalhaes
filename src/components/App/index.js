@@ -34,6 +34,30 @@ class App extends Component {
     }));
   };
 
+  removeFromOrder = key => {
+    this.setState(state => {
+      const order = { ...state.order };
+      if (!order[key] || order[key] < 2) {
+        delete order[key];
+      } else {
+        order[key] = order[key] - 1;
+      }
+      return {
+        order
+      };
+    });
+  };
+
+  deleteFromOrder = key => {
+    this.setState(state => {
+      const order = { ...state.order };
+      delete order[key];
+      return {
+        order
+      };
+    });
+  };
+
   render() {
     return (
       <div className={css.container}>
@@ -41,7 +65,13 @@ class App extends Component {
         <div className={css.content}>
           <Menu items={this.state.stock} addToOrder={this.addToOrder} />
           <div className={css.panel}>
-            <Order order={this.state.order} stock={this.state.stock} />
+            <Order
+              order={this.state.order}
+              stock={this.state.stock}
+              addToOrder={this.addToOrder}
+              removeFromOrder={this.removeFromOrder}
+              deleteFromOrder={this.deleteFromOrder}
+            />
             <Inventory
               onLoadClick={this.loadSampleData}
               onSubmit={this.addNewItem}
