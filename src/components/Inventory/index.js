@@ -62,6 +62,7 @@ class Inventory extends React.Component {
           </div>
           <input
             required
+            className={css.input}
             name="imageUrl"
             placeholder="Image"
             onChange={this.handleChange}
@@ -70,17 +71,18 @@ class Inventory extends React.Component {
           />
           <textarea
             required
+            className={css.input}
             name="description"
             placeholder="Description"
             onChange={this.handleChange}
             value={this.state.description}
             type="text"
           />
-          <button className={css.fullWidth} type="submit">
+          <button className="button" type="submit">
             + Add New Item
           </button>
         </form>
-        <button className={css.button} onClick={this.props.onLoadClick}>
+        <button className="button" onClick={this.props.onLoadClick}>
           Load Sample Data
         </button>
       </div>

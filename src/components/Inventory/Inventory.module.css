@@ -1,7 +1,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  border: 2px double var(--black);
+  margin-bottom: 8px;
 }
 
 .row {
@@ -9,7 +9,13 @@
   display: flex;
 }
 
-.button {
-  width: 100%;
-  padding: 5px;
+.input {
+  padding: 4px;
+  line-height: 1;
+  font-size: 1rem;
+  border: 0;
+  border-bottom: 1px solid var(--black);
+  border-right: 1px solid var(--black);
+  border-radius: var(--radius);
+  background: var(--white);
 }

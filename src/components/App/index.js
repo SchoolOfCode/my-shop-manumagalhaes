@@ -11,7 +11,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      stock: {}
+      stock: {},
+      order: {}
     };
   }
 
@@ -27,17 +28,25 @@ class App extends Component {
     }));
   };
 
+  addToOrder = key => {
+    this.setState(state => ({
+      order: { ...state.order, [key]: state.order[key] + 1 || 1 }
+    }));
+  };
+
   render() {
     return (
       <div className={css.container}>
         <h1 className={css.headline}>My Smart Eatery</h1>
         <div className={css.content}>
-          <Menu items={this.state.stock} />
-          <Order />
-          <Inventory
-            onLoadClick={this.loadSampleData}
-            onSubmit={this.addNewItem}
-          />
+          <Menu items={this.state.stock} addToOrder={this.addToOrder} />
+          <div className={css.panel}>
+            <Order order={this.state.order} stock={this.state.stock} />
+            <Inventory
+              onLoadClick={this.loadSampleData}
+              onSubmit={this.addNewItem}
+            />
+          </div>
         </div>
       </div>
     );

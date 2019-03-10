@@ -1,10 +1,12 @@
 .title {
   margin: 0;
+  color: var(--white);
 }
 
 .text {
   margin: 0;
   font-size: 12px;
+  color: var(--black);
 }
 
 .button {
@@ -48,4 +50,5 @@
 
 .price {
   font-size: 10px;
+  color: var(--white);
 }

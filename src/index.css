@@ -45,4 +45,24 @@ body {
   --fontHeadline: "Bungee Shade", cursive;
   --fontSecondary: "Roboto", sans-serif;
   --fontTertiary: "Lato", sans-serif;
+
+  /* Measurements */
+  --radius: 4px;
+}
+
+.button {
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius);
+  background-color: var(--pink);
+  border: 2px solid var(--pink);
+  transition: border 0.3s, color 0.3s;
+  text-transform: uppercase;
+  color: var(--white);
+  font-weight: 600;
+}
+
+.button:hover {
+  border-color: var(--purple);
+  color: var(--purple);
 }

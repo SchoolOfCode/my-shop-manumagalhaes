@@ -5,6 +5,7 @@ import css from "./Menu.module.css";
 
 class Menu extends React.Component {
   render() {
+    console.log("menu", Date.now());
     return (
       <div>
         <h2>Menu</h2>
@@ -27,7 +28,12 @@ class Menu extends React.Component {
                   </p>
                 </div>
                 <p className={css.text}>{this.props.items[key].description}</p>
-                <button className={css.button}>Add To Order</button>
+                <button
+                  className={`button ${css.button}`}
+                  onClick={() => this.props.addToOrder(key)}
+                >
+                  Add To Order
+                </button>
               </div>
             </li>
           ))}

@@ -55,3 +55,11 @@ We want to create skeletons of our three sections
 - Import them into App
 - Use them in render
 - Wrap them in a div so that they can be styled into columns
+
+### State
+
+We know we want to track the stock within our restaurant, which will tell us what items we have (and all their information) and which are available (in stock).
+
+- App should have a constructor method
+- This needs to call the parent constructor method so it can run the setup of a Component
+- It also needs to initialise state to have a stock property, which can be an empty object for now

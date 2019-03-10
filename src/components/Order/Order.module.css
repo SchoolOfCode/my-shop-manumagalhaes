@@ -1,0 +1,23 @@
+.item {
+}
+.name {
+  color: var(--white);
+}
+.at {
+}
+.price {
+  color: var(--black);
+}
+.total {
+  color: var(--white);
+}
+.totalPrice {
+  color: var(--black);
+  text-decoration: underline;
+}
+.x {
+  color: var(--white);
+}
+.quantity {
+  color: var(--white);
+}
