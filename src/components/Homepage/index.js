@@ -2,7 +2,7 @@ import React from "react";
 
 import css from "./StoreSelector.module.css";
 
-class StoreSelector extends React.Component {
+class Homepage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -43,4 +43,4 @@ class StoreSelector extends React.Component {
     }
 }
 
-export default StoreSelector;
+export default Homepage;
