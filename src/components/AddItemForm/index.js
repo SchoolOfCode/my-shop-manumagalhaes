@@ -39,7 +39,7 @@ class AddItemForm extends React.Component {
         <div className={css.row}>
           <input
             required
-            className={css.input}
+            className="input"
             name="name"
             placeholder="Name"
             onChange={this.handleChange}
@@ -48,7 +48,7 @@ class AddItemForm extends React.Component {
           />
           <input
             required
-            className={css.input}
+            className="input"
             name="price"
             placeholder="Price"
             onChange={this.handleChange}
@@ -57,7 +57,7 @@ class AddItemForm extends React.Component {
           />
           <input
             required
-            className={css.input}
+            className="input"
             name="stock"
             placeholder="Stock"
             onChange={this.handleChange}
@@ -67,7 +67,7 @@ class AddItemForm extends React.Component {
         </div>
         <input
           required
-          className={css.input}
+          className="input"
           name="imageUrl"
           placeholder="Image"
           onChange={this.handleChange}
@@ -76,7 +76,7 @@ class AddItemForm extends React.Component {
         />
         <textarea
           required
-          className={css.input}
+          className="input"
           name="description"
           placeholder="Description"
           onChange={this.handleChange}

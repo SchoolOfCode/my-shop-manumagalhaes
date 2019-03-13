@@ -62,6 +62,9 @@ class App extends Component {
     return (
       <div className={css.container}>
         <h1 className={css.headline}>My Smart Eatery</h1>
+        <h2 className={css.location}>
+          Store Location: {this.props.match.params.store}
+        </h2>
         <div className={css.content}>
           <Menu items={this.state.stock} addToOrder={this.addToOrder} />
           <div className={css.panel}>

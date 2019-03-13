@@ -66,3 +66,14 @@ body {
   border-color: var(--purple);
   color: var(--purple);
 }
+
+.input {
+  padding: 4px;
+  line-height: 1;
+  font-size: 1rem;
+  border: 0;
+  border-bottom: 1px solid var(--black);
+  border-right: 1px solid var(--black);
+  border-radius: var(--radius);
+  background: var(--white);
+}
